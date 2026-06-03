@@ -1,18 +1,11 @@
-import './App.css';
-import Header from './Header';
-import Nav from './Nav';
-import Main from './Main';
-import Footer from './Footer';
+import logo from './logo.png';
 
-function App() {
+function Header() {
   return (
-    <>
-      <Header />
-      <Nav />
-      <Main />
-      <Footer />
-    </>
+    <header>
+      <img src={logo} alt="Little Lemon Logo" className="logo" />
+    </header>
   );
 }
 
-export default App;
+export default Header;

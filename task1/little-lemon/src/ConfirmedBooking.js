@@ -1,11 +1,14 @@
 function ConfirmedBooking() {
   return (
-    <section>
-      <h1>Booking Confirmed!</h1>
-      <p>
-        Thank you for your reservation. Your table has been successfully booked.
-      </p>
-    </section>
+    <main>
+      <section aria-label="Booking Confirmation">
+        <h1>Booking Confirmed!</h1>
+
+        <p>
+          Thank you for your reservation.
+        </p>
+      </section>
+    </main>
   );
 }
 

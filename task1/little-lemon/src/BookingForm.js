@@ -15,7 +15,9 @@ function BookingForm({
 
     setDate(selectedDate);
 
-    dispatch(selectedDate);
+    if (dispatch) {
+      dispatch(selectedDate);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -29,8 +31,16 @@ function BookingForm({
     });
   };
 
+  const isFormValid =
+    date !== '' &&
+    time !== '' &&
+    guests >= 1 &&
+    guests <= 10 &&
+    occasion !== '';
+
   return (
     <form
+      aria-label="Reservation Form"
       onSubmit={handleSubmit}
       style={{
         display: 'grid',
@@ -61,6 +71,7 @@ function BookingForm({
         id="res-time"
         value={time}
         onChange={(e) => setTime(e.target.value)}
+        required
       >
         {availableTimes?.map((availableTime) => (
           <option
@@ -82,7 +93,9 @@ function BookingForm({
         min="1"
         max="10"
         value={guests}
-        onChange={(e) => setGuests(Number(e.target.value))}
+        onChange={(e) =>
+          setGuests(Number(e.target.value))
+        }
         required
       />
 
@@ -93,7 +106,10 @@ function BookingForm({
       <select
         id="occasion"
         value={occasion}
-        onChange={(e) => setOccasion(e.target.value)}
+        onChange={(e) =>
+          setOccasion(e.target.value)
+        }
+        required
       >
         <option value="Birthday">
           Birthday
@@ -107,6 +123,8 @@ function BookingForm({
       <input
         type="submit"
         value="Make Your Reservation"
+        disabled={!isFormValid}
+        aria-label="On Click"
       />
     </form>
   );

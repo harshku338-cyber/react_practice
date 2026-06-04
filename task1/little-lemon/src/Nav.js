@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function Nav() {
   return (
-    <nav>
+    <nav aria-label="Main Navigation">
       <ul>
         <li>
           <Link to="/">Home</Link>

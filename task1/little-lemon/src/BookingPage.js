@@ -6,15 +6,17 @@ function BookingPage({
   submitForm
 }) {
   return (
-    <section>
-      <h1>Reserve a Table</h1>
+    <main>
+      <section>
+        <h1>Reserve a Table</h1>
 
-      <BookingForm
-        availableTimes={availableTimes}
-        dispatch={dispatch}
-        submitForm={submitForm}
-      />
-    </section>
+        <BookingForm
+          availableTimes={availableTimes}
+          dispatch={dispatch}
+          submitForm={submitForm}
+        />
+      </section>
+    </main>
   );
 }
 

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function CallToAction() {
   return (
     <section className="hero">
@@ -11,7 +13,11 @@ function CallToAction() {
         twist.
       </p>
 
-      <button>Reserve a Table</button>
+      <Link to="/booking">
+        <button aria-label="On Click">
+          Reserve a Table
+        </button>
+      </Link>
     </section>
   );
 }

@@ -10,11 +10,9 @@ function App() {
   const navigate = useNavigate();
 
   const submitForm = (formData) => {
-    const success = window.submitAPI(formData);
+    console.log(formData);
 
-    if (success) {
-      navigate('/confirmed');
-    }
+    navigate('/confirmed');
   };
 
   return (

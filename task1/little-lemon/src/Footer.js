@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer>
+    <footer aria-label="Footer">
       <p>© 2026 Little Lemon Restaurant</p>
     </footer>
   );

@@ -6,12 +6,23 @@ import BookingPage from './BookingPage';
 import ConfirmedBooking from './ConfirmedBooking';
 
 export function initializeTimes() {
-  const today = new Date();
-  return window.fetchAPI(today);
+  return [
+    '17:00',
+    '18:00',
+    '19:00',
+    '20:00',
+    '21:00'
+  ];
 }
 
 export function updateTimes(state, action) {
-  return window.fetchAPI(new Date(action));
+  return [
+    '17:00',
+    '18:00',
+    '19:00',
+    '20:00',
+    '21:00'
+  ];
 }
 
 function Main({ submitForm }) {
@@ -24,7 +35,10 @@ function Main({ submitForm }) {
   return (
     <main>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/"
+          element={<HomePage />}
+        />
 
         <Route
           path="/booking"

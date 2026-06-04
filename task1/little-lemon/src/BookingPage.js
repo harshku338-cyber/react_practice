@@ -1,11 +1,16 @@
+import BookingForm from './BookingForm';
+
 function BookingPage() {
   return (
     <section>
       <h1>Reserve a Table</h1>
 
       <p>
-        Complete your reservation at Little Lemon.
+        Complete the form below to reserve your table at
+        Little Lemon.
       </p>
+
+      <BookingForm />
     </section>
   );
 }

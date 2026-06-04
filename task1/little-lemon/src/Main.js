@@ -3,28 +3,18 @@ import { useReducer } from 'react';
 
 import HomePage from './HomePage';
 import BookingPage from './BookingPage';
+import ConfirmedBooking from './ConfirmedBooking';
 
 export function initializeTimes() {
-  return [
-    '17:00',
-    '18:00',
-    '19:00',
-    '20:00',
-    '21:00'
-  ];
+  const today = new Date();
+  return window.fetchAPI(today);
 }
 
 export function updateTimes(state, action) {
-  return [
-    '17:00',
-    '18:00',
-    '19:00',
-    '20:00',
-    '21:00'
-  ];
+  return window.fetchAPI(new Date(action));
 }
 
-function Main() {
+function Main({ submitForm }) {
   const [availableTimes, dispatch] = useReducer(
     updateTimes,
     [],
@@ -42,8 +32,14 @@ function Main() {
             <BookingPage
               availableTimes={availableTimes}
               dispatch={dispatch}
+              submitForm={submitForm}
             />
           }
+        />
+
+        <Route
+          path="/confirmed"
+          element={<ConfirmedBooking />}
         />
       </Routes>
     </main>

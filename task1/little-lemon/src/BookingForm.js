@@ -1,6 +1,10 @@
 import { useState } from 'react';
 
-function BookingForm({ availableTimes, dispatch }) {
+function BookingForm({
+  availableTimes,
+  dispatch,
+  submitForm
+}) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('17:00');
   const [guests, setGuests] = useState(1);
@@ -17,7 +21,12 @@ function BookingForm({ availableTimes, dispatch }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    alert('Reservation Submitted');
+    submitForm({
+      date,
+      time,
+      guests,
+      occasion
+    });
   };
 
   return (
@@ -30,6 +39,8 @@ function BookingForm({ availableTimes, dispatch }) {
         margin: '0 auto'
       }}
     >
+      <h2>Reserve a Table</h2>
+
       <label htmlFor="res-date">
         Choose date
       </label>
@@ -39,6 +50,7 @@ function BookingForm({ availableTimes, dispatch }) {
         id="res-date"
         value={date}
         onChange={handleDateChange}
+        required
       />
 
       <label htmlFor="res-time">
@@ -50,7 +62,7 @@ function BookingForm({ availableTimes, dispatch }) {
         value={time}
         onChange={(e) => setTime(e.target.value)}
       >
-        {availableTimes.map((availableTime) => (
+        {availableTimes?.map((availableTime) => (
           <option
             key={availableTime}
             value={availableTime}
@@ -70,9 +82,8 @@ function BookingForm({ availableTimes, dispatch }) {
         min="1"
         max="10"
         value={guests}
-        onChange={(e) =>
-          setGuests(e.target.value)
-        }
+        onChange={(e) => setGuests(Number(e.target.value))}
+        required
       />
 
       <label htmlFor="occasion">
@@ -82,9 +93,7 @@ function BookingForm({ availableTimes, dispatch }) {
       <select
         id="occasion"
         value={occasion}
-        onChange={(e) =>
-          setOccasion(e.target.value)
-        }
+        onChange={(e) => setOccasion(e.target.value)}
       >
         <option value="Birthday">
           Birthday

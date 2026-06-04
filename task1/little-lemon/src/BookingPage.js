@@ -1,17 +1,18 @@
 import BookingForm from './BookingForm';
 
-function BookingPage({ availableTimes, dispatch }) {
+function BookingPage({
+  availableTimes,
+  dispatch,
+  submitForm
+}) {
   return (
     <section>
       <h1>Reserve a Table</h1>
 
-      <p>
-        Complete the form below to reserve your table.
-      </p>
-
       <BookingForm
         availableTimes={availableTimes}
         dispatch={dispatch}
+        submitForm={submitForm}
       />
     </section>
   );
